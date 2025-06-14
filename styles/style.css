@@ -1,28 +1,8 @@
-@font-face {
-    src:
-        url(../fonts/Raleway-Regular.woff2) format('woff2'),
-        url(../fonts/Raleway-Regular.woff) format('woff');
-    font-family: 'Raleway';
-    font-weight: normal;
-}
-
-@font-face {
-    src:
-        url(../fonts/Raleway-Bold.woff2) format('woff2'),
-        url(../fonts/Raleway-Bold.woff) format('woff');
-    font-family: 'Raleway';
-    font-weight: bold;
-}
-
-
-
 /* header */
 
 
-
-
 .header {
-    height: 295px;
+    padding: 94px 0 96px;
     display: grid;
     align-items: center;
     grid-template-columns: 1fr min-content 1fr;
@@ -30,23 +10,10 @@
 
 .header__links-list {
     display: inline-flex;
-    padding-left: 50px;
+    padding-left: 38px;
     list-style-type: circle;
     word-spacing: 3px;
 }
-
-.header__links-list li:not(:first-child) {
-    /* (:not(:first-child)) обращаемся ко все li кроме первого*/
-    text-decoration: underline;
-}
-
-
-.header__links-list li:first-child {
-    /* (:first-child) обращаемся тока к певому li*/
-    list-style-type: none;
-    margin-left: 0;
-}
-
 
 .header__links-list-item {
     margin: 0px 14.5px;
@@ -55,6 +22,15 @@
 .header__link {
     font-weight: 100;
     font-size: 18px;
+    text-decoration: underline;
+}
+
+.link-active {
+    text-decoration: none;
+}
+
+.header__links-list li:first-child {
+    list-style-type: none;
 }
 
 .header__logo-image {
@@ -72,7 +48,7 @@
     text-decoration: none;
     display: grid;
     font-weight: normal;
-    font-family: 'Raleway';
+    font-family: 'Raleway', Arial, sans-serif;
     font-size: 18px;
     line-height: 24.3px;
 
@@ -91,23 +67,26 @@
     width: 135px;
 }
 
-
 /*section cover*/
-
-
 
 .cover {
     background: url(../images/cover.jpg);
     background-position: center;
     background-size: cover;
-    height: 757px;
+    min-height: 757px;
     margin-bottom: 180px;
     position: relative;
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    position: absolute;
+
 }
 
 .cover__title {
@@ -142,16 +121,13 @@
     display: block;
 }
 
-
 .cover__description {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    position: absolute;
-    bottom: 0;
+    padding-top: 104px;
     width: 100%;
 }
-
 
 .cover__description-text {
     color: #fff;
@@ -177,10 +153,7 @@
     margin-bottom: 50px;
 }
 
-
 /*section lots*/
-
-
 
 .lots__heading {
     padding-left: 63px;
@@ -193,26 +166,32 @@
 
 .lots__card-list {
     display: flex;
-    margin-right: 9px;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.lots__card-list a {
+    text-decoration: none;
 }
 
 .lots__card-list-item {
+    position: relative;
+}
+
+.card-link-item {
     color: #FFFFFF;
-    height: 596px;
+    min-height: 596px;
     width: 334px;
     font-size: 20px;
     line-height: 120%;
-}
-
-.lots__card-list-item .overlay {
     padding: 48px 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.lots__card-list-item h3 {
+.card-link-item h3 {
     font-size: 21px;
     line-height: 125%;
     text-transform: uppercase;
@@ -220,28 +199,20 @@
     letter-spacing: 0.6px;
 }
 
-.lots__card-list-item {
-    list-style: none
+.card-link-item>*:not(.overlay) {
+    z-index: 1;
 }
-
 
 .card_type_film {
     background: url(../images/card-lot-01.jpg);
-    background-position: center;
-    background-size: cover;
-    margin-left: 9px;
 }
 
 .card_type_book {
     background: url(../images/card-lot-02.jpg);
-    background-position: center;
-    background-size: cover;
 }
 
 .card_type_picture {
     background: url(../images/card-lot-03.jpg);
-    background-position: center;
-    background-size: cover;
 }
 
 .card-link {
@@ -250,19 +221,16 @@
     padding-left: 64px;
     padding-top: 31px;
     display: flex;
-
 }
 
-
 /*section about*/
-
-
 
 .about {
     display: flex;
     flex-direction: row;
     gap: 72px;
     margin-top: 120px;
+    margin-bottom: 180px;
 }
 
 .about__logo {
@@ -276,7 +244,6 @@
 }
 
 .about__logo img {
-    /*обращаемся ко всем img*/
     height: 114px;
     width: 148px;
     margin-top: 64px;
@@ -285,40 +252,28 @@
 
 .about__title {
     margin-top: 139px;
-    margin-left: -4px;
+    padding-right: 26px;
 }
 
 .about__title h2 {
-    /*обращаемся ко всем h2*/
     font-size: 40px;
     line-height: 100%;
     text-transform: uppercase;
 }
 
 .about__text {
-    padding-right: 25px;
-    padding-bottom: 180px;
     font-size: 20px;
     line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-
-.about__text p:first-child {
-    /*(:first-child)обращаемся тока к первому р*/
+.about__text> :first-child {
     padding-top: 104px;
-    padding-right: 10px;
 }
-
-.about__text p:last-child {
-    /*(:first-child)обращаемся тока к последнему р*/
-    padding-top: 26px;
-}
-
-
 
 /* footer */
-
-
 
 .footer {
     display: flex;
@@ -328,27 +283,27 @@
     margin-bottom: 80px;
 }
 
-.footer__menu-list {
+.footer__links-list {
     flex-direction: column;
     display: flex;
     align-items: center;
-    font-size: 19px;
+    font-size: 17px;
     line-height: 21px;
+    list-style-type: none;
 }
 
-.footer__menu-list a:not(:first-child) {
-    /*(a:not(:first-child)) обращаемся ко всм а кроме первого */
-    text-decoration: underline;
+.footer-link-active {
+    text-decoration: none;
 }
 
-.footer__social-list-item {
+.footer__social-list {
+    list-style-type: none;
     padding-right: 50px;
     display: flex;
     gap: 48px;
 }
 
-.footer__social-list-item img {
-    /* обращаемся ко все img*/
+.footer__social-list-item {
     height: 48px;
     width: 48px;
 }
