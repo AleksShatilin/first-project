@@ -119,6 +119,8 @@
 .cover__title span {
     /*обращаемся ко всем span*/
     display: block;
+    z-index: 1;
+    position: relative;
 }
 
 .cover__description {
@@ -136,6 +138,7 @@
     padding-left: 49px;
     padding-bottom: 48px;
     word-spacing: 19px;
+    z-index: 1;
 }
 
 .bet-button {
@@ -151,6 +154,7 @@
     text-transform: uppercase;
     margin-right: 51px;
     margin-bottom: 50px;
+    z-index: 1;
 }
 
 /*section lots*/
@@ -166,13 +170,19 @@
 
 .lots__card-list {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 25px;
     flex-wrap: wrap;
     list-style: none;
 }
 
 .lots__card-list a {
     text-decoration: none;
+}
+
+.lots__card-list li {
+    background-position: center;
+    background-size: cover;
 }
 
 .lots__card-list-item {
@@ -204,15 +214,15 @@
 }
 
 .card_type_film {
-    background: url(../images/card-lot-01.jpg);
+    background-image: url(../images/card-lot-01.jpg);
 }
 
 .card_type_book {
-    background: url(../images/card-lot-02.jpg);
+    background-image: url(../images/card-lot-02.jpg);
 }
 
 .card_type_picture {
-    background: url(../images/card-lot-03.jpg);
+    background-image: url(../images/card-lot-03.jpg);
 }
 
 .card-link {
